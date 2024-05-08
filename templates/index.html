@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Posts {% endblock %}</h1>
-    {% for post in posts %}
-        <div class='post'>
-            <p>{{ post['created'] }}</p>
-            <h2>{{ post['title'] }}</h2>
-            <p>{{ post['content'] }}</p>
-        </div>
-    {% endfor %}
+    <h2>{% block title %} Roster {% endblock %}</h2>
+    <table>
+      {% for post in posts %}
+          <tr>
+            <td>{{ post['created'] }}<td> 
+            <td>{{ post['fname'] }}</td>
+            <td>{{ post['lname'] }}</td>
+            <td>{{ post['position'] }}</td>
+            <td>{{ post['rank'] }}</td>
+          </tr>
+      {% endfor %}
+    </table>
 {% endblock %}

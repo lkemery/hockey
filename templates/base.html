@@ -2,26 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %}- FlaskApp</title>
+    <title>{% block title %} {% endblock %}- HockeyApp</title>
     <style>
         .post {
             padding: 10px;
             margin: 5px;
-            background-color: #f3f3f3
+            background-color: #838383
         }
-
+        body {
+            background-color: white;
+          }
         nav a {
-            color: #d64161;
-            font-size: 3em;
-            margin-left: 50px;
+            color: #2596be1;
+            font-size: 2em;
+            margin-left: 30px;
             text-decoration: none;
+        }
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+          }
+        th, td {
+            border: 1px solid black;
+            padding: 15px;
+        }
+        tr:nth-child(even) {
+            background-color: #D6EEEE;
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('index') }}">FlaskApp</a>
-        <a href="#">About</a>
+        <a href="{{ url_for('index') }}">HockeyApp</a>
+        <a href="{{ url_for('addplayer') }}">Add Player</a>
+        <a href="#">Hockey</a>
     </nav>
     <hr>
     <div class="content">

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Add a New Player {% endblock %}</h1>
+    <form method="post">
+        <label for="fname">First Name</label>
+        <br>
+        <input type="text" name="fname"
+            placeholder="First Name"
+            value="{{ request.form['fname'] }}"></input>
+        <br>
+
+        <label for="lname">Last Name</label>
+        <br>
+        <input type="text" name="lname"
+            placeholder="Last Name"
+            value="{{ request.form['lname'] }}"></input>
+        <br>
+
+        <label for="position">Favorite Position</label>
+        <br>
+        <input type="position"
+           placeholder="Favorite Position"
+           value="{{ request.form['position'] }}"></input>
+        <br>
+
+        <label for="rank">Skating Rank</label>
+        <br>
+        <input type="rank"
+           placeholder="skating rank"
+           value="{{ request.form['rank'] }}"></input>
+        <br>
+
+        <button type="submit">Submit</button>
+</form>
+        
+
+
+{% endblock %}
