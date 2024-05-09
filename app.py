@@ -6,6 +6,8 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8b17d12bb0c9bb70bc77ca6a6c3587adb6e42a7489add1d3'
 
+messages = []
+
 def get_db_connection():
     conn = sqlite3.connect('hockey.db')
     conn.row_factory = sqlite3.Row
@@ -25,6 +27,7 @@ def index():
 @app.route('/addplayer', methods=['GET', 'POST'])
 def addplayer():
     if request.method == 'POST':
+        
         fname = request.form['fname']
         lname = request.form['lname']
         position = request.form['position']
@@ -36,9 +39,11 @@ def addplayer():
             flash('Last Name is require') 
         elif not position:
             flash('Preferred position is require') 
+        elif not rank: 
+            rank = 0
         else: 
             messages.append({'fname': fname, 'lname': lname, 'position': position, 'rank': rank})
-            return redirect('index')
+            return redirect(url_for('index'))
 
     return render_template('addplayer.html') 
 

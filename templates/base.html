@@ -29,16 +29,25 @@
         tr:nth-child(even) {
             background-color: #D6EEEE;
         }
+        .alert {
+            padding: 20px;
+            margin: 5px;
+            color: #970020;
+            background-color: #ffd5de;
+        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('index') }}">HockeyApp</a>
+        <a href="{{ url_for('index') }}">Players</a>
         <a href="{{ url_for('addplayer') }}">Add Player</a>
-        <a href="#">Hockey</a>
+        <a href="#">About</a>
     </nav>
     <hr>
     <div class="content">
+        {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
         {% block content %} {% endblock %}
     </div>
 </body>
